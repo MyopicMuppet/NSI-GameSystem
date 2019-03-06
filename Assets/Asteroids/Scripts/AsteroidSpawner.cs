@@ -17,29 +17,36 @@ namespace Asteroids
 
         void Spawn()
         {
-            //Randomize a position
-            Vector2 rand = Random.insideUnitCircle * spawnRadius;
-            //Offset position from spawner location
-            Vector2 position = (Vector2)transform.position + rand;
-            // Generate a random index into prefab array
-            int randIndex = Random.Range(0, asteroidPrefabs.Length);
-            // Get random asteroid using index
-            GameObject randAsteroid = asteroidPrefabs[randIndex];
-            // Clone random asteroid
-            Instantiate(randAsteroid, position, Quaternion.identity);
+            //Randomize a position within a circle
+            Vector2 randomPos = Random.insideUnitCircle * spawnRadius;
+            
+            // Randomize a rotation for asteroid
+            Quaternion randomRot = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
+
+            // Generate random index into asteroid prefabs array
+            int randomIndex = Random.Range(0, asteroidPrefabs.Length);
+
+            // Get random asteroid prefab from array using index
+            GameObject randomAsteroid = asteroidPrefabs[randomIndex];
+
+            // Spawn random asteroid at random position and default Quaternion
+            Instantiate(randomAsteroid, randomPos, randomRot);
 
 
         }
         // Use this for initialization
         void Start()
         {
+            // Repeatedly call the spawn function
+            InvokeRepeating("Spawn", 0, spawnRate);
 
         }
 
-        // Update is called once per frame
-        void Update()
+        // Draws debug elements for testing
+        private void OnDrawGizmos()
         {
-
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, spawnRadius);
         }
     }
 

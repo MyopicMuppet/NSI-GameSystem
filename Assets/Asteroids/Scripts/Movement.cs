@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     // Units to travel per second
-    public float speed = 20f;
+    public float movementSpeed = 20f;
     // Amount of rotation per second
 
     // Reference to attached Rigidbody2D
@@ -20,36 +20,39 @@ public class Movement : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
     }
 
+    // Control is a custom made function to handle movement
+    private void Control()
+    {
+        // If the W key is pressed
+        if (Input.GetKey(KeyCode.W))
+        {
+            // Add a force up
+            rigid.AddForce(transform.up * movementSpeed);
+        }
+
+        //If the S key is pressed
+        if (Input.GetKey(KeyCode.S))
+        {
+            rigid.AddForce(-transform.up * movementSpeed);
+        }
+
+        // If the A key is pressed
+        if (Input.GetKey(KeyCode.A))
+        {
+            rigid.rotation += rotationSpeed * Time.deltaTime;
+        }
+
+        // If D key is presssed
+        if (Input.GetKey(KeyCode.D))
+        {
+            rigid.rotation -= rotationSpeed * Time.deltaTime;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        // Check if A key is pressed
-        if (Input.GetKey(KeyCode.A))
-        {
-            //Rotate left
-            transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
-        }
-
-        // Check if D key is pressed
-        if (Input.GetKey(KeyCode.D))
-        {
-            // Rotate Right
-            transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
-        }
-
-        // Check if W is pressed
-        if (Input.GetKey(KeyCode.W))
-        {
-            // Move in facing direction
-            rigid.AddForce(transform.up * speed);
-        }
-
-        // Check if S key is pressed
-        if (Input.GetKey(KeyCode.S))
-        {
-            // Move in facing direction
-            rigid.AddForce(-transform.up * speed);
-        }
+        Control();
 
     }
 }
