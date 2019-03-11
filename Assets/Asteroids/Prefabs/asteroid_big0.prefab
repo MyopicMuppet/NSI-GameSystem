@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212101641124226382}
   - component: {fileID: 58438111139893230}
   - component: {fileID: 50155119734545678}
+  - component: {fileID: 114143495737089386}
   m_Layer: 0
   m_Name: asteroid_big0
   m_TagString: Untagged
@@ -77,6 +78,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.65
+--- !u!114 &114143495737089386
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1786879924547626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d861442081caf49b8ba628281af66d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  padding: 3
+  debugColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!212 &212101641124226382
 SpriteRenderer:
   m_ObjectHideFlags: 1

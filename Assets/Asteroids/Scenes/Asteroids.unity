@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 955043041}
   - component: {fileID: 955043040}
   - component: {fileID: 955043039}
+  - component: {fileID: 955043042}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -146,7 +147,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.1013261, g: 0.102277905, b: 0.103773594, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -190,6 +191,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &955043042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 955043038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d861442081caf49b8ba628281af66d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  padding: 3
+  debugColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &1008977985
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +216,7 @@ GameObject:
   - component: {fileID: 1008977987}
   - component: {fileID: 1008977986}
   - component: {fileID: 1008977990}
+  - component: {fileID: 1008977991}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -314,8 +329,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7deb459449b9aa24c92fdb8fe3ff1d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1082678600790326, guid: 8835e9788b5b1ab4ab80dee2edaa9837,
+    type: 2}
   movementSpeed: 20
   rotationSpeed: 360
+--- !u!114 &1008977991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1008977985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d861442081caf49b8ba628281af66d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  padding: 3
+  debugColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &1481736599
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,8 +381,10 @@ MonoBehaviour:
   - {fileID: 1992326447052004, guid: 6edcb8c660a6fa046931894b20b15f4e, type: 2}
   - {fileID: 1113260385908374, guid: 9248918b51ef2684096f77f68743be4f, type: 2}
   - {fileID: 1113260385908374, guid: 9248918b51ef2684096f77f68743be4f, type: 2}
+  maxVelocity: 3
   spawnRate: 1
-  spawnRadius: 5
+  spawnPadding: 2
+  debugColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!4 &1481736601
 Transform:
   m_ObjectHideFlags: 0

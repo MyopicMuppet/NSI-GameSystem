@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Player : MonoBehaviour
 {
+    //Prefab to spawn when shooting
+    public GameObject projectilePrefab;
+
     // Units to travel per second
     public float movementSpeed = 20f;
     // Amount of rotation per second
@@ -13,6 +16,20 @@ public class Movement : MonoBehaviour
 
     public float rotationSpeed = 360f;
     // Use this for initialization
+
+        // Shoots a projectile in a set direction
+        void Shoot()
+    {
+        // Spawn projectile at position and rotation of player
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+
+        // Get Rigidbody2D from projectile
+        Projectile bullet = projectile.GetComponent<Projectile>();
+        bullet.Fire(transform.up);
+    }
+
+    
+
     void Start()
     {
         // Grab reference to rigidbody2d component
@@ -23,6 +40,13 @@ public class Movement : MonoBehaviour
     // Control is a custom made function to handle movement
     private void Control()
     {
+
+        // If player hits Space
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Shoot a projectile
+            Shoot();
+        }
         // If the W key is pressed
         if (Input.GetKey(KeyCode.W))
         {
