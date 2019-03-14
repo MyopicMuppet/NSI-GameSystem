@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212509349757892322}
   - component: {fileID: 58377567347201722}
   - component: {fileID: 50542443993569164}
-  - component: {fileID: 114890773600613290}
+  - component: {fileID: 114786890010597084}
   - component: {fileID: 114155645555095064}
   m_Layer: 0
   m_Name: projectile
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
---- !u!114 &114890773600613290
+--- !u!114 &114786890010597084
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

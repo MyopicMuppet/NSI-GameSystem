@@ -4,13 +4,28 @@ using UnityEngine;
 
 public class DestroyOutofBorder : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+    //Padding from bounds to destroy object
+    public float padding = 10f;
+    public Color debugColor = Color.red;
+
+    private void OnDrawGizmos()
+    {
+        Bounds camBounds = Camera.main.GetBounds(padding);
+        Gizmos.color = debugColor;
+        Gizmos.DrawWireCube(camBounds.center, camBounds.center, camBounds.size);
+    }
+
+  
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+        //Get Camera Bounds with Padding
+        Bounds camBounds = Camera.main.GetBounds(padding);
+        //If position is out of bounds
+        if (!camBounds.Contains(transform.position))
+        {
+            //Destroy it
+            Destroy(gameObject);
+        }
 	}
 }
