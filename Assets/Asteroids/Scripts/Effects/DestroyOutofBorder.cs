@@ -12,7 +12,7 @@ public class DestroyOutofBorder : MonoBehaviour {
     {
         Bounds camBounds = Camera.main.GetBounds(padding);
         Gizmos.color = debugColor;
-        Gizmos.DrawWireCube(camBounds.center, camBounds.center, camBounds.size);
+        Gizmos.DrawWireCube(camBounds.center, camBounds.size);
     }
 
   

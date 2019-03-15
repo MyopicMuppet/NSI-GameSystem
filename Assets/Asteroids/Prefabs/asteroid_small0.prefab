@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212139064654423594}
   - component: {fileID: 58872594637347400}
   - component: {fileID: 50468714290101000}
+  - component: {fileID: 114242073787733610}
   - component: {fileID: 114037007817186272}
   m_Layer: 0
   m_Name: asteroid_small0
@@ -91,6 +92,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   padding: 3
   debugColor: {r: 0, g: 0, b: 1, a: 1}
+--- !u!114 &114242073787733610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1992326447052004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251752a03d1a77543b9ce6728b7829c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidPieces: []
+  spawnAmount: 4
+  maxVelocity: 3
 --- !u!212 &212139064654423594
 SpriteRenderer:
   m_ObjectHideFlags: 1
